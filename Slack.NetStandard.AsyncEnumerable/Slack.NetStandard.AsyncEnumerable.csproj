@@ -9,8 +9,8 @@
     <PackageProjectUrl>https://github.com/stoiveyp/Slack.NetStandard.AsyncEnumerable</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Slack.NetStandard.AsyncEnumerable</RepositoryUrl>
     <PackageTags>slack, socket, mode, envelope</PackageTags>
-    <PackageReleaseNotes>Fix SocketModeClient constructors</PackageReleaseNotes>
-    <Version>1.0.2</Version>
+    <PackageReleaseNotes>Fix StreamReader</PackageReleaseNotes>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>

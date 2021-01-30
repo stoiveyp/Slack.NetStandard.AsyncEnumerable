@@ -39,7 +39,7 @@ namespace Slack.NetStandard.AsyncEnumerable
                 var msg = mem.Length > 0 ? Encoding.UTF8.GetString(mem.ToArray()) : Encoding.UTF8.GetString(memory.Span);
 
 
-                using var reader = new JsonTextReader(new StreamReader(mem, Encoding.UTF8, false, 1024, true));
+                using var reader = new JsonTextReader(new StringReader(msg));
                 if (msg.Contains("envelope_id"))
                 {
                     yield return serializer.Deserialize<Envelope>(reader);
