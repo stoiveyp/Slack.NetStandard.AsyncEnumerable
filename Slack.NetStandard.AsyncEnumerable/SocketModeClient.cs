@@ -9,7 +9,7 @@ using Slack.NetStandard.Socket;
 
 namespace Slack.NetStandard.AsyncEnumerable
 {
-    public abstract class SocketModeClient
+    public class SocketModeClient
     {
         public ClientWebSocket WebSocket { get; }
         public SlackWebApiClient WebClient { get; protected set; }
