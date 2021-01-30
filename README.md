@@ -31,3 +31,7 @@ Hello and Disconnect messages are automatically handled by the ``SocketModeClien
 If there is a valid SlackWebApiClient, or the class was able to create one from an app token, then the class will attempt to retrieve a new connection URL and re-connect the ClientWebSocket automatically - allowing the ``foreach`` to continue without interruption.
 
 If you require different functionality in these cases, there is an OnHello and OnDisconnect method which can be overwritten in a subclass
+
+## Sample Application
+
+The Socket Sample app within [Slack.NetStandard](https://github.com/stoiveyp/Slack.NetStandard) is a working example of a console application that uses this library, just supply your own app token
