@@ -14,12 +14,12 @@ namespace Slack.NetStandard.AsyncEnumerable
         public ClientWebSocket WebSocket { get; }
         public SlackWebApiClient WebClient { get; protected set; }
 
-        protected SocketModeClient() : this(new ClientWebSocket())
+        public SocketModeClient() : this(new ClientWebSocket())
         {
 
         }
 
-        protected SocketModeClient(ClientWebSocket socket)
+        public SocketModeClient(ClientWebSocket socket)
         {
             WebSocket = socket;
         }
@@ -67,7 +67,7 @@ namespace Slack.NetStandard.AsyncEnumerable
             }
         }
 
-        public Task Send(string message, CancellationToken token = default)
+        public virtual Task Send(string message, CancellationToken token = default)
         {
             return WebSocket.SendAsync(Encoding.UTF8.GetBytes(message), WebSocketMessageType.Text, true, token);
         }
