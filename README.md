@@ -34,4 +34,4 @@ If you require different functionality in these cases, there is an OnHello and O
 
 ## Sample Application
 
-The Socket Sample app within [Slack.NetStandard](https://github.com/stoiveyp/Slack.NetStandard) is a working example of a console application that uses this library, just supply your own app token
+The SocketSample app in the repo is a working example of a console application that uses this library, just supply your own app token
