@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/stoiveyp/Slack.NetStandard.AsyncEnumerable</RepositoryUrl>
     <PackageTags>slack, socket, mode, envelope</PackageTags>
     <PackageReleaseNotes>Fix reconnection flow</PackageReleaseNotes>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -47,7 +47,7 @@ namespace Slack.NetStandard.AsyncEnumerable
             try
             {
                 WebSocket = _factory();
-                await WebSocket.ConnectAsync(new Uri(connection.Url + "&debug_reconnects=true", UriKind.Absolute),
+                await WebSocket.ConnectAsync(new Uri(connection.Url, UriKind.Absolute),
                     token);
             }
             catch (Exception ex)
