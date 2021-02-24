@@ -99,7 +99,7 @@ namespace Slack.NetStandard.AsyncEnumerable
         {
             if (WebSocket.State == WebSocketState.Open || WebSocket.State == WebSocketState.Aborted)
             {
-                await WebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Disconnect message received from slack",
+                await WebSocket.CloseOutputAsync(WebSocketCloseStatus.NormalClosure, "Disconnect message received from slack",
                     token);
             }
 

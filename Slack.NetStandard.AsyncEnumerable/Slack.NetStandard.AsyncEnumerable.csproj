@@ -9,8 +9,8 @@
     <PackageProjectUrl>https://github.com/stoiveyp/Slack.NetStandard.AsyncEnumerable</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Slack.NetStandard.AsyncEnumerable</RepositoryUrl>
     <PackageTags>slack, socket, mode, envelope</PackageTags>
-    <PackageReleaseNotes>Fix reconnection flow</PackageReleaseNotes>
-    <Version>1.1.1</Version>
+    <PackageReleaseNotes>Fix issue where handshake errors occurred on disconnect</PackageReleaseNotes>
+    <Version>1.1.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
