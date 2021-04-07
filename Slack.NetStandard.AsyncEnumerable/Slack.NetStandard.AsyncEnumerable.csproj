@@ -9,8 +9,8 @@
     <PackageProjectUrl>https://github.com/stoiveyp/Slack.NetStandard.AsyncEnumerable</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Slack.NetStandard.AsyncEnumerable</RepositoryUrl>
     <PackageTags>slack, socket, mode, envelope</PackageTags>
-    <PackageReleaseNotes>Update Slack.NetStandard reference to fix envelope serialization issues</PackageReleaseNotes>
-    <Version>1.1.3</Version>
+    <PackageReleaseNotes>Add SerializationProblem/OnSerializationProblem to ensure processing continues even if Slack.NetStandard has trouble processing messages</PackageReleaseNotes>
+    <Version>1.2.0-beta1</Version>
   </PropertyGroup>
 
   <ItemGroup>

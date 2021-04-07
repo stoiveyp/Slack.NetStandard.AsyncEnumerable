@@ -56,6 +56,8 @@ namespace Slack.NetStandard.AsyncEnumerable
             }
         }
 
+        public Func<SerializationProblem, Task> OnSerializationProblem { get; set; }
+
         public virtual async IAsyncEnumerable<Envelope> EnvelopeAsyncEnumerable([EnumeratorCancellation] CancellationToken token)
         {
             while (!token.IsCancellationRequested && WebSocket.State == WebSocketState.Open)
@@ -70,6 +72,10 @@ namespace Slack.NetStandard.AsyncEnumerable
                             break;
                         case Envelope env:
                             yield return env;
+                            break;
+                        case SerializationProblem problem:
+                            var task = OnSerializationProblem?.Invoke(problem) ?? Task.CompletedTask;
+                            await task;
                             break;
                         case Disconnect dis:
                             disconnect = dis;

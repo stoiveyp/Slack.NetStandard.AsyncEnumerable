@@ -38,22 +38,33 @@ namespace Slack.NetStandard.AsyncEnumerable
 
                 var msg = mem.Length > 0 ? Encoding.UTF8.GetString(mem.ToArray()) : Encoding.UTF8.GetString(memory.Span);
 
+                object returnVal = null;
 
-                using var reader = new JsonTextReader(new StringReader(msg));
-                if (msg.Contains("envelope_id"))
+                try
                 {
-                    yield return serializer.Deserialize<Envelope>(reader);
+                    using var reader = new JsonTextReader(new StringReader(msg));
+                    if (msg.Contains("envelope_id"))
+                    {
+                        returnVal = serializer.Deserialize<Envelope>(reader);
+                    }
+                    else if (msg.Contains("hello"))
+                    {
+                        returnVal = serializer.Deserialize<Hello>(reader);
+                    }
+                    else
+                    {
+                        returnVal = serializer.Deserialize<Disconnect>(reader);
+                    }
                 }
-                else if (msg.Contains("hello"))
+                catch (Exception ex)
                 {
-                    yield return serializer.Deserialize<Hello>(reader);
+                    mem.Seek(0, SeekOrigin.Begin);
+                    using var sr = new StringReader(msg);
+                    returnVal = new SerializationProblem(sr.ReadToEnd(), ex);
                 }
-                else
-                {
-                    yield return serializer.Deserialize<Disconnect>(reader);
-                    yield break;
-                }
-                
+
+                yield return returnVal;
+
                 if (memory.Length > 0)
                 {
                     mem.SetLength(0);
