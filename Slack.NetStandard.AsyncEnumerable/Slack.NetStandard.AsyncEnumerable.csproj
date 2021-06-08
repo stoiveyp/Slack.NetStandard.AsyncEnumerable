@@ -9,8 +9,9 @@
     <PackageProjectUrl>https://github.com/stoiveyp/Slack.NetStandard.AsyncEnumerable</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Slack.NetStandard.AsyncEnumerable</RepositoryUrl>
     <PackageTags>slack, socket, mode, envelope</PackageTags>
-    <PackageReleaseNotes>Add SerializationProblem/OnSerializationProblem to ensure processing continues even if Slack.NetStandard has trouble processing messages</PackageReleaseNotes>
-    <Version>1.2.0-beta1</Version>
+    <PackageReleaseNotes>Add SerializationProblem/OnSerializationProblem to ensure processing continues even if Slack.NetStandard has trouble processing messages
+Receiving a close message returns a disconnect reason to ensure the connection is closed</PackageReleaseNotes>
+    <Version>1.2.0-beta2</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -16,6 +16,7 @@ namespace Slack.NetStandard.AsyncEnumerable
         {
             var mem = new MemoryStream(bufferSize);
             var memory = new Memory<byte>(new byte[bufferSize]);
+            var closing = false;
             serializer ??= JsonSerializer.CreateDefault();
 
             while (!token.IsCancellationRequested)
@@ -23,6 +24,7 @@ namespace Slack.NetStandard.AsyncEnumerable
                 var result = await client.ReceiveAsync(memory, token);
                 if (result.MessageType == WebSocketMessageType.Close)
                 {
+                    closing = true;
                     break;
                 }
 
@@ -69,6 +71,11 @@ namespace Slack.NetStandard.AsyncEnumerable
                 {
                     mem.SetLength(0);
                 }
+            }
+
+            if (closing)
+            {
+                yield return new Disconnect {Reason = "Close Message Received"};
             }
         }
     }
