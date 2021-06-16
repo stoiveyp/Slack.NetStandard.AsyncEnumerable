@@ -11,7 +11,7 @@
     <PackageTags>slack, socket, mode, envelope</PackageTags>
     <PackageReleaseNotes>Add SerializationProblem/OnSerializationProblem to ensure processing continues even if Slack.NetStandard has trouble processing messages
 Receiving a close message returns a disconnect reason to ensure the connection is closed</PackageReleaseNotes>
-    <Version>1.2.0-beta2</Version>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
