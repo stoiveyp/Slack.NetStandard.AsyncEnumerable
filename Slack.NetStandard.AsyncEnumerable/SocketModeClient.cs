@@ -5,6 +5,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Slack.NetStandard.Messages;
+using Slack.NetStandard.Messages.Blocks;
 using Slack.NetStandard.Socket;
 
 namespace Slack.NetStandard.AsyncEnumerable
@@ -89,6 +92,20 @@ namespace Slack.NetStandard.AsyncEnumerable
                     }
                 }
             }
+        }
+
+        public Task Acknowledge(string envelopeId, CancellationToken token = default)
+        {
+            return Acknowledge(envelopeId, (object)null, token);
+        }
+
+        public Task Acknowledge<T>(string envelopeId, T payload, CancellationToken token = default)
+        {
+            return Send(JsonConvert.SerializeObject(new Acknowledge
+            {
+                EnvelopeId = envelopeId,
+                Payload = payload
+            }), token);
         }
 
         public virtual Task Send(string message, CancellationToken token = default)
